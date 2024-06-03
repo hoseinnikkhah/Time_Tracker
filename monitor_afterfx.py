@@ -12,8 +12,15 @@ def is_process_running(process_name):
 
 if __name__ == "__main__":
     process_name = "AfterFX.exe"
+    was_running = False
     while True:
         if is_process_running(process_name):
-            print("Running")
+            if not was_running:
+                print("Running")
+                was_running = True
             time.sleep(25)  # Prevents continuous printing
+        else:
+            if was_running:
+                print("Stopped")
+                was_running = False
         time.sleep(1)
