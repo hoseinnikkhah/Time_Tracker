@@ -13,9 +13,10 @@ def is_process_running(process_name):
     return False
 
 def write_to_csv(start_time, end_time, elapsed_time):
+    elapsed_hours = elapsed_time / 3600  
     with open('time_sheet.csv', 'a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([start_time, end_time, elapsed_time])
+        writer.writerow([start_time, end_time, elapsed_time, elapsed_hours])
 
 if __name__ == "__main__":
     process_name = "AfterFX.exe"
